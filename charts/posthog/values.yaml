@@ -1808,6 +1808,7 @@ kafka:
   numPartitions: 1
 
   persistence:
+    storageClassName: "gp2"
     # - Enable data persistence using PVC.
     enabled: true
     # -- PVC Storage Request for Kafka data volume.
