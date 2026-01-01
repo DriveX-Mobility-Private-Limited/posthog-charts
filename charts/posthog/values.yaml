@@ -1857,7 +1857,6 @@ externalTemporal:
 ###
 ###
 zookeeper:
-  storageClass: "gp2"
   # -- Whether to deploy Zookeeper as part of this release.
   enabled: true
 
@@ -1886,6 +1885,10 @@ zookeeper:
     # prometheus.io/scrape: "true"
     # prometheus.io/path: /metrics
     # prometheus.io/port: "9141"
+  persistence:
+    enabled: true
+    storageClass: "gp2"
+    size: 8Gi    
 
 ###
 ###
