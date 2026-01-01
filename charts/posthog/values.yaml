@@ -1682,8 +1682,8 @@ _pgbouncer: &_pgbouncer
     timeoutSeconds: 2
 
   image:
-    repository: bitnami/pgbouncer
-    tag: "1.23.0-debian-12-r4"
+    repository: bitnamilegacy/pgbouncer
+    tag: "1.23.0-debian-12-r0"
     pullPolicy: IfNotPresent   
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
