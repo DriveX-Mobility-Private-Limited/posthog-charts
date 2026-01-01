@@ -1537,8 +1537,8 @@ postgresql:
   # -- Name override for PostgreSQL app.
   nameOverride: posthog-postgresql
   image:
-    repository: bitnami/postgresql
-    tag: "16.2.0-debian-12-r6"
+    repository: bitnamilegacy/postgresql
+    tag: "17.3.0-debian-12-r1"
     pullPolicy: IfNotPresent  
   # -- PostgreSQL database name.
   postgresqlDatabase: posthog
