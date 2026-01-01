@@ -1538,7 +1538,7 @@ postgresql:
   nameOverride: posthog-postgresql
   image:
     repository: bitnami/postgresql
-    tag: "14.12.0-debian-12-r10"
+    tag: "16.2.0-debian-12-r6"
     pullPolicy: IfNotPresent  
   # -- PostgreSQL database name.
   postgresqlDatabase: posthog
