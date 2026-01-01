@@ -248,9 +248,18 @@ web:
     capture: false
 
   # -- Node labels for web stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for web stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for web stack deployment.
   affinity: {}
   # :TODO:
@@ -336,9 +345,18 @@ worker:
   resources: {}
 
   # -- Node labels for the worker stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the worker stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"    
   # -- Affinity settings for the worker stack deployment.
   affinity: {}
 
@@ -387,9 +405,18 @@ plugins:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"    
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -463,9 +490,18 @@ pluginsAsync:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"   
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -552,9 +588,18 @@ pluginsIngestion:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"     
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -644,9 +689,19 @@ pluginsAnalyticsIngestion:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for the plugin-server stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"    
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -770,9 +825,18 @@ recordingsIngestion:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -887,9 +951,18 @@ recordingsBlobIngestion:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -963,9 +1036,18 @@ pluginsExports:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -1038,9 +1120,18 @@ pluginsJobs:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -1113,9 +1204,18 @@ pluginsScheduler:
   resources: {}
 
   # -- Node labels for the plugin-server stack deployment.
-  nodeSelector: {}
+  nodeSelector:
+    if-posthog-pod: "true"
   # -- Toleration labels for the plugin-server stack deployment.
-  tolerations: []
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
   # -- Affinity settings for the plugin-server stack deployment.
   affinity: {}
 
@@ -1199,9 +1299,18 @@ temporalPyWorker:
   resources: {}
 
   # -- Node labels for the worker stack deployment.
-  nodeSelector: {}
-  # -- Toleration labels for the worker stack deployment.
-  tolerations: []
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for the plugin-server stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
   # -- Affinity settings for the worker stack deployment.
   affinity: {}
 
@@ -1519,10 +1628,18 @@ _pgbouncer: &_pgbouncer
   resources: {}
 
   # -- Node labels for the pgbouncer stack deployment.
-  nodeSelector: {}
-
-  # -- Toleration labels for the pgbouncer stack deployment.
-  tolerations: []
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for the plugin-server stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
 
   # -- Affinity settings for the pgbouncer stack deployment.
   affinity: {}
@@ -1728,7 +1845,7 @@ externalTemporal:
   # - External Temporal scheduler's port
   port: 7233
   # - Namespace to register into
-  namespace: ""
+  namespace: "posthog"
 
 ###
 ###
@@ -1774,7 +1891,7 @@ clickhouse:
   # -- Whether to install clickhouse. If false, `clickhouse.host` must be set
   enabled: true
   # -- Which namespace to install clickhouse and the `clickhouse-operator` to (defaults to namespace chart is installed to)
-  namespace:
+  namespace: "posthog"
   # -- Clickhouse cluster
   cluster: posthog
   # -- Clickhouse database
@@ -1865,7 +1982,7 @@ clickhouse:
     #    If undefined (the default) or set to `null`, no storageClassName spec is
     #    set, choosing the default provisioner.
     #
-    storageClass: null
+    storageClass: gp2
 
     # -- Persistent Volume size
     size: 20Gi
@@ -2028,9 +2145,18 @@ cloudwatch:
 # Provide affinity for hooks if needed
 hooks:
   # -- Node labels for hooks.
-  nodeSelector: {}
-  # -- Toleration labels for hooks.
-  tolerations: []
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for the plugin-server stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   # -- Affinity settings for hooks.
   affinity: {}
   migrate:
