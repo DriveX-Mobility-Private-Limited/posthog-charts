@@ -310,7 +310,10 @@ web:
     successThreshold: 1
     # -- The startup probe timeout seconds
     timeoutSeconds: 30
-
+  extraInitContainers:
+    - name: skip-async-migrations
+      image: busybox
+      command: ['sh', '-c', 'echo "Skipping async migrations"']
   # -- Container security context for web stack deployment.
   securityContext:
     enabled: false
