@@ -354,7 +354,9 @@ worker:
     maxUnavailable: 25%
 
   # -- Additional env variables to inject into the worker stack deployment.
-  env: []
+  env:
+    - name: SKIP_ASYNC_MIGRATIONS_SETUP
+      value: "1"  
 
   # -- Resource limits for the worker stack deployment.
   resources: {}
