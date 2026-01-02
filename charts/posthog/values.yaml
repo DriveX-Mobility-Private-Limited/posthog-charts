@@ -55,7 +55,7 @@ env:
     value: "false"
   # ADD THIS:
   - name: SKIP_ASYNC_MIGRATIONS_CHECK
-    value: "1"  
+    value: "true"  
 # env:
 #   - name: FOO
 #     value: bar
