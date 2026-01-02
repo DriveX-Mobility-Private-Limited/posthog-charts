@@ -44,7 +44,7 @@ posthogSecretKey:
 # -- Environment variables to inject into every PostHog deployment.
 env:
   - name: CLICKHOUSE_MIGRATIONS_CLUSTER
-    value: "posthog-mig"
+    value: "posthog"
 # env:
 #   - name: FOO
 #     value: bar
@@ -2141,9 +2141,7 @@ clickhouse:
       - name: API_CREATE_INTEGRATION_TABLES
         value: "true"
       - name: BACKUPS_TO_KEEP_REMOTE
-        value: "0"
-      - name: CLICKHOUSE_MIGRATIONS_CLUSTER
-        value: "posthog_mig"        
+        value: "0"      
       # Add settings for remote backup storage.
 
 ## External clickhouse configuration
