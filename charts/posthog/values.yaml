@@ -1913,7 +1913,7 @@ zookeeper:
 ###
 clickhouse:
   # -- Whether to install clickhouse. If false, `clickhouse.host` must be set
-  enabled: true
+  enabled: false
   # -- Which namespace to install clickhouse and the `clickhouse-operator` to (defaults to namespace chart is installed to)
   namespace: "posthog"
   # -- Clickhouse cluster
@@ -1927,7 +1927,7 @@ clickhouse:
   password: a1f31e03-c88e-4ca6-a2df-ad49183d15d9
   # -- Clickhouse existing secret name that needs to be in the namespace where
   # posthog is deployed into. Will not use the above password value if set
-  existingSecret: ""
+  existingSecret: "" 
   # -- Key in the existingSecret containing the password value
   existingSecretPasswordKey: ""
   # -- Whether to use TLS connection connecting to ClickHouse
