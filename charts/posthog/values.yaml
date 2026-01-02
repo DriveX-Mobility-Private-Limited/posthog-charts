@@ -2205,7 +2205,13 @@ hooks:
     # -- Env variables for migate hooks
     env: []
     # -- Hook job resource limits/requests
-    resources: {}
+    resources:
+      requests:
+        memory: 2Gi
+        cpu: 1000m
+      limits:
+        memory: 4Gi
+        cpu: 2000m    
 
 serviceAccount:
   # -- Configures if a ServiceAccount with this name should be created
