@@ -1446,14 +1446,14 @@ ingress:
   # -- Ingress handler type. Defaults to `nginx` if nginx is enabled and to `clb` on gcp.
   type:
   # -- URL to address your PostHog installation. You will need to set up DNS after installation
-  hostname:
+  hostname: "posthog-v1.drivex.dev"
   gcp:
     # -- Specifies the name of the global IP address resource to be associated with the google clb
     ip_name: "posthog"
     # -- If true, will force a https redirect when accessed over http
     forceHttps: true
     # -- Specifies the name of the tls secret to be used by the ingress. If not specified a managed certificate will be generated.
-    secretName: ""
+    secretName: "nginx"
   # -- Whether to enable letsencrypt. Defaults to true if hostname is defined and nginx and cert-manager are enabled otherwise false.
   letsencrypt:
   nginx:
@@ -1462,7 +1462,10 @@ ingress:
     # -- Whether to redirect to TLS with nginx ingress.
     redirectToTLS: true
   # -- Extra annotations
-  annotations: {}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-dev"
+    # Add any other annotations your setup needs  
   # -- TLS secret to be used by the ingress.
   secretName:
 
