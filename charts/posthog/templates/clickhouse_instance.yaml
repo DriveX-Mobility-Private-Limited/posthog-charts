@@ -33,6 +33,9 @@ spec:
           {{- end }}
         layout:
           {{- toYaml .Values.clickhouse.layout | nindent 10 }}
+    settings:
+      macros/hostClusterType: "default"
+      macros/hostClusterRole: "default"          
     files:
       events.proto: |
         syntax = "proto3";
