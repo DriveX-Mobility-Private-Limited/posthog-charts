@@ -33,18 +33,6 @@ spec:
           {{- end }}
         layout:
           {{- toYaml .Values.clickhouse.layout | nindent 10 }}
-      - name: "posthog_migrations"
-        templates:
-          podTemplate: pod-template
-          clusterServiceTemplate: service-template
-          {{- if and (.Values.clickhouse.persistence.enabled) (not .Values.clickhouse.persistence.existingClaim) }}
-          dataVolumeClaimTemplate: data-volumeclaim-template
-          {{- end }}
-        layout:
-          {{- toYaml .Values.clickhouse.layout | nindent 10 }}
-    settings:
-      {{- merge dict .Values.clickhouse.settings .Values.clickhouse.defaultSettings | toYaml | nindent 6 }}
-
     files:
       events.proto: |
         syntax = "proto3";
