@@ -44,7 +44,7 @@ posthogSecretKey:
 # -- Environment variables to inject into every PostHog deployment.
 env:
   - name: CLICKHOUSE_MIGRATIONS_CLUSTER
-    value: "posthog_mig"
+    value: "posthog-mig"
 # env:
 #   - name: FOO
 #     value: bar
@@ -1918,7 +1918,7 @@ clickhouse:
   namespace: "posthog"
   # -- Clickhouse cluster
   cluster: posthog
-  migrationsCluster: posthog_mig
+  migrationsCluster: posthog-mig
   # -- Clickhouse database
   database: posthog
   # -- Clickhouse user
