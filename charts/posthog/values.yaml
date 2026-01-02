@@ -42,7 +42,9 @@ posthogSecretKey:
   existingSecretKey: posthog-secret
 
 # -- Environment variables to inject into every PostHog deployment.
-env: []
+env:
+  - name: CLICKHOUSE_MIGRATIONS_CLUSTER
+    value: "posthog_mig"
 # env:
 #   - name: FOO
 #     value: bar
@@ -1916,6 +1918,7 @@ clickhouse:
   namespace: "posthog"
   # -- Clickhouse cluster
   cluster: posthog
+  migrationsCluster: posthog_mig
   # -- Clickhouse database
   database: posthog
   # -- Clickhouse user
@@ -1956,7 +1959,6 @@ clickhouse:
     ##   - myRegistryKeySecretName
     ##
     pullSecrets: []
-
   # -- Toleration labels for clickhouse pod assignment
   nodeSelector:
     if-posthog-pod: "true"
@@ -2141,6 +2143,8 @@ clickhouse:
         value: "true"
       - name: BACKUPS_TO_KEEP_REMOTE
         value: "0"
+      - name: CLICKHOUSE_MIGRATIONS_CLUSTER
+        value: "posthog_mig"        
       # Add settings for remote backup storage.
 
 ## External clickhouse configuration
