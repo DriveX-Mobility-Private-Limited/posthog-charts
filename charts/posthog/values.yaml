@@ -285,15 +285,15 @@ web:
 
   readinessProbe:
     # -- The readiness probe failure threshold
-    failureThreshold: 3
+    failureThreshold: 30
     # -- The readiness probe initial delay seconds
     initialDelaySeconds: 0
     # -- The readiness probe period seconds
     periodSeconds: 30
     # -- The readiness probe success threshold
-    successThreshold: 1
+    successThreshold: 30
     # -- The readiness probe timeout seconds
-    timeoutSeconds: 5
+    timeoutSeconds: 30
 
   startupProbe:
     # -- The startup probe failure threshold
@@ -447,15 +447,15 @@ plugins:
 
   readinessProbe:
     # -- The readiness probe failure threshold
-    failureThreshold: 3
+    failureThreshold: 30
     # -- The readiness probe initial delay seconds
     initialDelaySeconds: 50
     # -- The readiness probe period seconds
     periodSeconds: 30
     # -- The readiness probe success threshold
-    successThreshold: 1
+    successThreshold: 30
     # -- The readiness probe timeout seconds
-    timeoutSeconds: 5
+    timeoutSeconds: 30
 
   # -- Sentry endpoint to send errors to. Falls back to global sentryDSN
   sentryDSN:
