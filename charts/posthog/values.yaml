@@ -1955,7 +1955,18 @@ clickhouse:
     pullSecrets: []
 
   # -- Toleration labels for clickhouse pod assignment
-  tolerations: []
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for the plugin-server stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule" 
   # -- Affinity settings for clickhouse pod
   affinity: {}
   # -- Clickhouse resource requests/limits. See more at http://kubernetes.io/docs/user-guide/compute-resources/
