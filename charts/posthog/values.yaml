@@ -53,9 +53,8 @@ env:
     value: "0"
   - name: CLICKHOUSE_REPLICATION
     value: "false"
-  # ADD THIS:
-  - name: SKIP_ASYNC_MIGRATIONS_CHECK
-    value: "true"  
+  - name: POSTHOG_SKIP_MIGRATION_CHECKS
+    value: "1"
 # env:
 #   - name: FOO
 #     value: bar
