@@ -1918,7 +1918,6 @@ clickhouse:
   namespace: "posthog"
   # -- Clickhouse cluster
   cluster: posthog
-  migrationsCluster: posthog-mig
   # -- Clickhouse database
   database: posthog
   # -- Clickhouse user

@@ -33,12 +33,6 @@ spec:
           {{- end }}
         layout:
           {{- toYaml .Values.clickhouse.layout | nindent 10 }}
-      # Add migrations cluster
-      - name: {{ .Values.clickhouse.migrationsCluster | default "posthog-mig" | quote }}
-        templates:
-          podTemplate: pod-template
-        layout:
-          {{- toYaml .Values.clickhouse.layout | nindent 10 }}          
     files:
       events.proto: |
         syntax = "proto3";
