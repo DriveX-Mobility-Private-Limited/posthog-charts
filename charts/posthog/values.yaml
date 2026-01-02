@@ -46,7 +46,9 @@ env:
   - name: CLICKHOUSE_MIGRATIONS_CLUSTER
     value: "posthog"
   - name: SKIP_ASYNC_MIGRATIONS_SETUP
-    value: "1"    
+    value: "1"
+  - name: CLICKHOUSE_REPLICATION
+    value: "false"         
 # env:
 #   - name: FOO
 #     value: bar
