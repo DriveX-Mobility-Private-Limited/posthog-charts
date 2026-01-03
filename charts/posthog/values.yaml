@@ -1794,7 +1794,18 @@ redis:
       ## allkeys-lru: evict keys by trying to remove the less recently used (LRU) keys first, in order
       ## to make space for the new data added
       - "--maxmemory-policy allkeys-lru"
-
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for web stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
 externalRedis:
   # -- External Redis host to use.
   host: ""
@@ -1845,7 +1856,18 @@ kafka:
     enabled: true
     # -- PVC Storage Request for Kafka data volume.
     size: 20Gi
-
+  nodeSelector:
+    if-posthog-pod: "true"
+  # -- Toleration labels for web stack deployment.
+  tolerations:
+    - key: "if-monitoring-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+    - key: "if-posthog-pod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"  
   zookeeper:
     # -- Switch to enable or disable the ZooKeeper helm chart. !!! Please DO NOT override this (this chart installs Zookeeper separately) !!!
     enabled: false
