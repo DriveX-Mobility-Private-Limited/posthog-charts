@@ -61,7 +61,7 @@ env:
 
 migrate:
   # -- Whether to install the PostHog migrate job or not.
-  enabled: true
+  enabled: false
 
 events:
   # -- Whether to install the PostHog events stack or not.
@@ -357,7 +357,15 @@ worker:
   env:
     - name: SKIP_ASYNC_MIGRATIONS_SETUP
       value: "1"  
-
+  command:
+    - /bin/bash
+    - -c
+  args:
+    - |
+      export SKIP_ASYNC_MIGRATIONS_SETUP=1
+      export SKIP_ASYNC_MIGRATIONS=1
+      export RUN_ASYNC_MIGRATIONS=0
+      exec celery -A posthog worker -Ofair -n node@%h --without-mingle --without-heartbeat
   # -- Resource limits for the worker stack deployment.
   resources: {}
 
